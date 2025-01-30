@@ -21,12 +21,7 @@ function MoviePage() {
     };
 
     useEffect(() => {
-        console.log("Movie ID from URL params:", movieId); // ✅ Debug log
-        if (movieId) {
-            getMovieById(movieId);
-        } else {
-            console.error("movieId is undefined");
-        }
+        getMovieById(movieId);
     }, [movieId]);
 
     return (
