@@ -1,8 +1,6 @@
 .movie-detail{
-    margin: 0 auto;
     &__about {
         display: flex;
-        justify-content: space-between;
-        align-content: center;
+        justify-content: space-around;
     }
 }

@@ -1,5 +1,6 @@
 import LandingPage from './pages/LandingPage/LandingPage'
 import MoviePage from './pages/MoviePage/MoviePage'
+import MovieDetail from './pages/MovieDetail/MovieDetail'
 import './App.css'
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
     <>
     <LandingPage/>
     <MoviePage/>
+    <MovieDetail/>
     </>
   )
 }
