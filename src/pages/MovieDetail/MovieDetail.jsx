@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link } from 'react-router-dom'
+import '../MovieDetail/MovieDetail.scss'
 
 const API_KEY = "7711f6bf2ea2cd9f3132825c07f94af8"; 
 
@@ -11,7 +12,7 @@ function MovieDetails() {
     async function RandomMovie() {
       try {
         const response = await axios.get(
-            `https://api.themoviedb.org/3/movie/?api_key=${API_KEY}&sort_by=popularity.desc`
+            `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&sort_by=popularity.desc`
         );
         const movies = response.data.results;
         const randomMovie = movies[Math.floor(Math.random() * movies.length)];
@@ -28,7 +29,10 @@ function MovieDetails() {
   
   return (
     <section className="movie-detail">
+      <div className="md-space">
+      <Link to ="/"> <button>Homepage</button> </Link> 
       <h2 className="movie-detail__title">{movie.original_title}</h2>
+      </div>
         <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.original_title} />
       <div className="movie-detail__about">
           <p className="movie-detail__release-date">Release date: {movie.release_date}</p>

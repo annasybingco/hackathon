@@ -1,8 +1,15 @@
 .movie-detail{
-    margin: 0 auto;
+ 
     &__about {
         display: flex;
-        justify-content: space-between;
-        align-content: center;
+        justify-content: space-around;
     }
+}
+
+.md-space {
+    display: flex;
+    gap: 12em;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 2em;
 }
