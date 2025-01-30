@@ -1,0 +1,15 @@
+.movie-detail{
+ 
+    &__about {
+        display: flex;
+        justify-content: space-around;
+    }
+}
+
+.md-space {
+    display: flex;
+    gap: 12em;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 2em;
+}
