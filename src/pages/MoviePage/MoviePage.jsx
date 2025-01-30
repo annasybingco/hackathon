@@ -4,11 +4,12 @@ import axios from 'axios';
 
 const API_KEY = "7711f6bf2ea2cd9f3132825c07f94af8";
 
-function MovieDetails() {
+function MoviePage() {
     const { movieId } = useParams();
     const [movie, setMovie] = useState(null);
 
     const getMovieById = async (id) => {
+        console.log("Movie ID received:", id);
         try {
             const response = await axios.get(
                 `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`
@@ -20,7 +21,12 @@ function MovieDetails() {
     };
 
     useEffect(() => {
-        getMovieById(movieId);
+        console.log("Movie ID from URL params:", movieId); // ✅ Debug log
+        if (movieId) {
+            getMovieById(movieId);
+        } else {
+            console.error("movieId is undefined");
+        }
     }, [movieId]);
 
     return (
@@ -30,11 +36,11 @@ function MovieDetails() {
           <article>
           <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.original_title} />
           <h3>{movie.original_title}</h3>
-          <p>Popularity: {movie.popularity}</p>
+          <p>Genre: {movie.genres.map(genre => genre.name).join(', ')}</p>
       </article>
       )}
       </section>
     );
 }
 
-export default MovieDetails;
+export default MoviePage;
